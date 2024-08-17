@@ -20,7 +20,11 @@ int main() {
     out << t << "\n";
 
     for (long long tc = 1; tc <= t; ++tc) {
-        
+        // small test cases 
+        long long n = rand() % UPPER_LIMIT + 1;
+        long long m = rand() % UPPER_LIMIT + 1;
+
+        out << n << " " << m << "\n";   
     }
 
     out.close();
