@@ -21,7 +21,7 @@ int main() {
 
     for (long long tc = 1; tc <= t; ++tc) {
         long long n, m;
-        n = 65432;
+        n = rand() % UPPER_LIMIT + 1;
         m = rand() % UPPER_LIMIT + 1;
 
         out << n << " " << m << "\n"; 
