@@ -6,5 +6,5 @@ if [ $# -gt 0 ]; then
     cp -r .template/* $foldername
 else 
     # echo error 
-    echo "NOOO"
+    echo "DUUUUDE, that folder already existsssss"
 fi
