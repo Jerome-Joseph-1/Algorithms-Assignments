@@ -1,18 +1,19 @@
 #include <algorithm>
 #include <fstream>
 #include <iostream>
-#include <unordered_map>
+#include <vector>
 
 using namespace std;
 
 long long find_max_length_dense_substring(long long n, string& binary_string) {
-    unordered_map<long long, long long> smallest_index_for_sum;
+    // unordered_map<long long, long long> smallest_index_for_sum;
+    vector<long long> smallest_index_for_sum(2*n + 1, -1);
 
     long long sum = 0, max_length_dense_substring = 0;
     for (long long i = 0; i < n; ++i) {
         sum += binary_string[i] == '1' ? 1 : -1;
 
-        if(smallest_index_for_sum.find(sum) == smallest_index_for_sum.end())
+        if(smallest_index_for_sum[sum] == -1)
             smallest_index_for_sum[sum] = i;
 
         if(sum > 0) {
@@ -20,14 +21,16 @@ long long find_max_length_dense_substring(long long n, string& binary_string) {
             continue;
         }
 
-        max_length_dense_substring = max(
-            max_length_dense_substring,
-            smallest_index_for_sum.find(sum - 1) == smallest_index_for_sum.end() ? 0 : i - smallest_index_for_sum[sum - 1]
-        );
+        if(smallest_index_for_sum[sum - 1] != -1)
+            max_length_dense_substring = max(
+                max_length_dense_substring,
+                i - smallest_index_for_sum[sum - 1]
+            );
     }
 
     return max_length_dense_substring;
 }
+
 
 void solve(long long testcase) {
     long long n;
