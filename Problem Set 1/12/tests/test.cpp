@@ -6,7 +6,6 @@
 
 using namespace std;
 
-
 typedef struct node {
     long long val;
     struct node* next;
