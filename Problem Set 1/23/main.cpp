@@ -15,7 +15,7 @@ long long max_profit(long long n, long long k, vector<long long>& nums) {
     }
 
     return profit;
-}
+}   
 
 void solve(long long testcase) {
     long long n, k; cin >> n >> k;
